@@ -5,7 +5,7 @@ import {Provider} from 'react-redux';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 import rootReducer from './reducers';
-
+import './styles/styles.scss';
 
 class MyAppRoot extends React.Component {
   render() {
