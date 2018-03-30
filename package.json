@@ -6,7 +6,8 @@
   "scripts": {
     "test": "npm test",
     "build": "webpack",
-    "start": "webpack-dev-server --open",
+    "postinstall": "npm run build",
+    "start": "node index.js",
     "watch": "webpack --watch"
   },
   "repository": {
@@ -51,5 +52,8 @@
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.7",
     "redux": "^3.7.2"
+  },
+  "engines": {
+    "node": "8.10.0"
   }
 }
