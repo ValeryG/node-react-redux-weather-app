@@ -1,30 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
+import thunk from 'redux-thunk';
+
+import HomeContainer from './components/HomeContainer';
 
 import rootReducer from './reducers';
 import './styles/styles.scss';
 
-class MyAppRoot extends React.Component {
-  render() {
-    return(
-      <div className="my-app-root">
-        <p>Hello world!</p>
-      </div>
-    );
-  }
-};
-
-const store = createStore(rootReducer);
-
+const store = createStore(rootReducer, applyMiddleware(thunk));
 const rootElement = document.getElementById('react-root');
 
 ReactDOM.render(
   <Provider store={store}>
     <Router>
-      <Route path="/" component={MyAppRoot} />
+      <Route path="/" component={HomeContainer} />
     </Router>
   </Provider>,
   rootElement);

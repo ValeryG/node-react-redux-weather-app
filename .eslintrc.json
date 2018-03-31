@@ -1,7 +1,16 @@
 {
-    "extends": "standard",
-    "rules": {
-      "semi": "off",
-      "space-before-function-paren": "off"
-    }
+  "extends": [
+    "standard",
+    "plugin:react/recommended"
+  ],
+  "rules": {
+    "semi": "off",
+    "space-before-function-paren": "off",
+    "keyword-spacing": "off"
+  },
+  "env": {
+    "jest": true,
+    "node": true,
+    "es6": true
+  }
 }
