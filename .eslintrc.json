@@ -2,6 +2,7 @@
     "extends": "standard",
     "rules": {
       "semi": "off",
-      "space-before-function-paren": "off"
+      "space-before-function-paren": "off",
+      "keyword-spacing": "off"
     }
 }
