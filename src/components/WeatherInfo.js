@@ -20,9 +20,16 @@ const ErrorInfo = ({error}) => {
   if (!error) {
     return null;
   }
+  let errorMessage = error.response.body ? error.response.body.message
+    : 'Unknown error occurred. Please try again later';
   return (
     <div>
-      {JSON.stringify(error)}
+      <div>
+        <h2>Oops! Error has occurred</h2>
+      </div>
+      <div>
+        <p>{errorMessage}</p>
+      </div>
     </div>
   );
 };
@@ -114,10 +121,10 @@ const WeatherInfo = ({weatherInfo}) => {
     <div className="weather-info" style={{marginBottom: '2em'}}>
       <ErrorInfo
         error={weatherInfo.error} />
-      <WeatherDetails
+      {!weatherInfo.error && <WeatherDetails
         weather={weather}
         main={main}
-        other={other} />
+        other={other} />}
     </div>
   );
 };
