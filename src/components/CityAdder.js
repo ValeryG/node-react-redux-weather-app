@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import {addAndFetchForCityIfNecessary} from '../actions/weatherInfo';
+import {select as selectCity} from '../actions/cities';
 
 class CityAdder extends React.Component {
   constructor(props) {
@@ -41,6 +42,7 @@ class CityAdder extends React.Component {
       });
     } else {
       this.props.addCity(this.state.city);
+      this.props.selectCity(this.state.city);
       this.setState({
         city: '',
         error: ''
@@ -51,7 +53,8 @@ class CityAdder extends React.Component {
 
 CityAdder.propTypes = {
   cities: PropTypes.arrayOf(PropTypes.string).isRequired,
-  addCity: PropTypes.func.isRequired
+  addCity: PropTypes.func.isRequired,
+  selectCity: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
@@ -64,6 +67,9 @@ function mapDispatchToProps(dispatch) {
   return {
     addCity: function(city) {
       dispatch(addAndFetchForCityIfNecessary(city));
+    },
+    selectCity: function(city) {
+      dispatch(selectCity(city));
     }
   };
 }

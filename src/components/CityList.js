@@ -4,7 +4,9 @@ import {connect} from 'react-redux';
 
 import CityAdder from './CityAdder';
 
-const CityList = ({cities}) => {
+import {select as selectCity} from '../actions/cities';
+
+const CityList = ({cities, selectCity}) => {
   return (
     <div className="city-list">
       <CityAdder />
@@ -12,7 +14,9 @@ const CityList = ({cities}) => {
         {cities.map(city => {
           return (
             <li key={city}>
-              {city}
+              <button onClick={function() { selectCity(city); }}>
+                {city}
+              </button>
             </li>
           );
         })}
@@ -22,7 +26,8 @@ const CityList = ({cities}) => {
 };
 
 CityList.propTypes = {
-  cities: PropTypes.arrayOf(PropTypes.string).isRequired
+  cities: PropTypes.arrayOf(PropTypes.string).isRequired,
+  selectCity: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
@@ -31,4 +36,12 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(CityList);
+function mapDispatchToProps(dispatch) {
+  return {
+    selectCity: function(city) {
+      dispatch(selectCity(city));
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CityList);

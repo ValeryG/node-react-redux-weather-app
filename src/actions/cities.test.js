@@ -15,4 +15,11 @@ describe('city actions', () => {
       city
     });
   });
+  it('should create an action with type SELECT_CITY', () => {
+    const city = 'Montreal';
+    expect(CitiesActions.select(city)).toEqual({
+      type: 'SELECT_CITY',
+      city
+    });
+  });
 });

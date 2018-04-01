@@ -4,3 +4,5 @@ export const RECEIVE_WEATHER_INFO = 'RECEIVE_WEATHER_INFO';
 
 export const ADD_CITY = 'ADD_CITY';
 export const REMOVE_CITY = 'REMOVE_CITY';
+
+export const SELECT_CITY = 'SELECT_CITY';

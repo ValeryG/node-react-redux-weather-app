@@ -13,13 +13,12 @@ class HomeContainer extends React.Component {
     this.props.fetchWeatherForCity('Minneapolis');
   }
   render() {
+    const selected = this.props.selectedCity;
     return (
       <div className="home">
         <CityList />
-        <div className="cities">
-          {this.props.cities.map(city => {
-            return <CityContainer city={city} key={city} />;
-          })}
+        <div className="city">
+          {selected && <CityContainer city={selected} />}
         </div>
       </div>
     );
@@ -29,13 +28,15 @@ class HomeContainer extends React.Component {
 HomeContainer.propTypes = {
   weatherByCity: PropTypes.object.isRequired,
   fetchWeatherForCity: PropTypes.func.isRequired,
-  cities: PropTypes.arrayOf(PropTypes.string).isRequired
+  cities: PropTypes.arrayOf(PropTypes.string).isRequired,
+  selectedCity: PropTypes.string
 };
 
 function mapStateToProps(state) {
   return {
     weatherByCity: state.weatherByCity,
-    cities: state.cities
+    cities: state.cities,
+    selectedCity: state.selectedCity
   };
 }
 

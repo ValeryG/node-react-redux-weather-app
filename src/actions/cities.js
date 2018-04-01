@@ -13,3 +13,10 @@ export function remove(city) {
     city
   };
 };
+
+export function select(city) {
+  return {
+    type: ActionTypes.SELECT_CITY,
+    city
+  };
+};
