@@ -100,7 +100,7 @@ WeatherDetails.propTypes = {
   other: PropTypes.object
 };
 
-const WeatherInfo = ({onRemove, weatherInfo}) => {
+const WeatherInfo = ({weatherInfo}) => {
   const weather = weatherInfo.data ? weatherInfo.data.weather[0] : null;
   const main = weatherInfo.data ? weatherInfo.data.main : null;
   const other = weatherInfo.data ? {
@@ -112,9 +112,6 @@ const WeatherInfo = ({onRemove, weatherInfo}) => {
   } : null;
   return (
     <div className="weather-info" style={{marginBottom: '2em'}}>
-      <div>
-        <button onClick={onRemove}>Remove</button>
-      </div>
       <ErrorInfo
         error={weatherInfo.error} />
       <WeatherDetails
@@ -126,8 +123,7 @@ const WeatherInfo = ({onRemove, weatherInfo}) => {
 };
 
 WeatherInfo.propTypes = {
-  weatherInfo: PropTypes.object.isRequired,
-  onRemove: PropTypes.func.isRequired
+  weatherInfo: PropTypes.object.isRequired
 };
 
 export default WeatherInfo;

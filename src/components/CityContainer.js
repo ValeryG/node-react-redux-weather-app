@@ -14,8 +14,7 @@ const CityContainer = ({city, removeCity, weatherByCity}) => {
       <div><h1>{city}</h1></div>
       {weatherForCity.fetching && <LoadingWidget />}
       {!weatherForCity.fetching && <WeatherInfo
-        weatherInfo={weatherForCity}
-        onRemove={function() { removeCity(city); }} />}
+        weatherInfo={weatherForCity} />}
     </div>
   );
 };
