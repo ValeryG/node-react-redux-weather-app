@@ -8,4 +8,11 @@ describe('city actions', () => {
       city
     });
   });
+  it('should create an action with type REMOVE_CITY', () => {
+    const city = 'Vancouver';
+    expect(CitiesActions.remove(city)).toEqual({
+      type: 'REMOVE_CITY',
+      city
+    });
+  });
 });

@@ -6,3 +6,10 @@ export function add(city) {
     city
   };
 }
+
+export function remove(city) {
+  return {
+    type: ActionTypes.REMOVE_CITY,
+    city
+  };
+};

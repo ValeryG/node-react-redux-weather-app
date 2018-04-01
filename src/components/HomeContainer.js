@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-import HomePresentation from './HomePresentation';
+import WeatherInfo from './WeatherInfo';
 import CityAdder from './CityAdder';
 
 import * as weatherInfoActions from '../actions/weatherInfo';
@@ -29,8 +29,9 @@ class HomeContainer extends React.Component {
   render() {
     return (
       <div>
-        <HomePresentation
-          weatherByCity={this.props.weatherByCity} />
+        {this.props.cities.map(city => {
+          return <WeatherInfo city={city} key={city} />;
+        })}
         <div>
           {this.state.error && JSON.stringify(this.state.error)}
         </div>

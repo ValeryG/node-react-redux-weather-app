@@ -8,6 +8,11 @@ export default function(state = ['SEATTLE', 'MINNEAPOLIS'], action) {
         return [...state, city];
       }
       return state;
+    case ActionTypes.REMOVE_CITY:
+      let targetCity = action.city.toLowerCase();
+      return state.filter(city => {
+        return city.toLowerCase() !== targetCity;
+      });
     default:
       return state;
   }

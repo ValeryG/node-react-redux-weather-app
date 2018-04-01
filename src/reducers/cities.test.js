@@ -17,4 +17,8 @@ describe('Cities reducer', () => {
     const city = 'seAtTle';
     expect(citiesReducer(initialState, {type: 'ADD_CITY', city})).toEqual(initialState);
   });
+  it('should remove a city ignoring its case', () => {
+    const city = 'MinNeaPOliS';
+    expect(citiesReducer(initialState, {type: 'REMOVE_CITY', city})).toEqual(['SEATTLE']);
+  });
 });
