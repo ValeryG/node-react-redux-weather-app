@@ -9,12 +9,22 @@ import * as weatherInfoActions from '../actions/weatherInfo';
 class HomeContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.props.fetchWeatherForCity('Seattle');
+    this.props.fetchWeatherForCity('Seattle').then(null, error => {
+      this.setState({
+        error: error.response.body
+      });
+    });
+    this.state = {};
   }
   render() {
     return (
-      <HomePresentation
-        weatherByCity={this.props.weatherByCity} />
+      <div>
+        <HomePresentation
+          weatherByCity={this.props.weatherByCity} />
+        <div>
+          {this.state.error && JSON.stringify(this.state.error)}
+        </div>
+      </div>
     );
   }
 };
@@ -33,9 +43,9 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     fetchWeatherForCity: function(city) {
-      return dispatch(weatherInfoActions.fetchForCity(city))
+      return dispatch(weatherInfoActions.fetchForCity(city));
     }
-  }
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);

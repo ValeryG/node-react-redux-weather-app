@@ -10,7 +10,7 @@ jest.mock('../api/weather');
 
 describe('weatherInfo actions', () => {
   describe('fetchForCity()', () => {
-    it('should call weather APII and dispatch action with response', () => {
+    it('should call weather API and dispatch action with response', () => {
       const response = {
         main: {
           temp: 277.14,
@@ -23,7 +23,7 @@ describe('weatherInfo actions', () => {
       const store = mockStore({});
       const city = 'Vancouver';
       const mockApi = jest.fn(() => {
-        return new Promise((resolve) => {
+        return new Promise(resolve => {
           resolve(response);
         });
       });

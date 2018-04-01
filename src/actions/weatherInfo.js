@@ -6,15 +6,17 @@ function receiveWeatherInfo(city, info) {
     type: ActionTypes.RECEIVE_WEATHER_INFO,
     city,
     info
-  }
+  };
 }
 
 export function fetchForCity(city) {
   return function(dispatch) {
-    return WeatherApi.getWeatherForCity(city).then(
+    const promise = WeatherApi.getWeatherForCity(city);
+    promise.then(
       response => {
         dispatch(receiveWeatherInfo(city, response));
       }
     );
-  }
+    return promise;
+  };
 }
