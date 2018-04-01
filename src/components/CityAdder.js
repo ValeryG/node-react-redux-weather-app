@@ -8,7 +8,8 @@ class CityAdder extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      city: ''
+      city: '',
+      error: ''
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -20,6 +21,9 @@ class CityAdder extends React.Component {
           <input
             onChange={this.onChange}/>
         </form>
+        {this.state.error && <div>
+          {this.state.error}
+        </div>}
       </div>
     );
   }
@@ -30,7 +34,13 @@ class CityAdder extends React.Component {
   }
   onSubmit(event) {
     event.preventDefault();
-    this.props.addCity(this.state.city);
+    if (this.props.cities.includes(this.state.city.toUpperCase())) {
+      this.setState({
+        error: `${this.state.city} has already been added`
+      });
+    } else {
+      this.props.addCity(this.state.city);
+    }
   }
 };
 
