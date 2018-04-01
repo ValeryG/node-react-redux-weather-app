@@ -19,7 +19,8 @@ class CityAdder extends React.Component {
       <div>
         <form onSubmit={this.onSubmit}>
           <input
-            onChange={this.onChange}/>
+            value={this.state.city}
+            onChange={this.onChange} />
         </form>
         {this.state.error && <div>
           {this.state.error}
@@ -40,6 +41,10 @@ class CityAdder extends React.Component {
       });
     } else {
       this.props.addCity(this.state.city);
+      this.setState({
+        city: '',
+        error: ''
+      });
     }
   }
 };
