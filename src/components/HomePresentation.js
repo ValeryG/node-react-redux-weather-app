@@ -20,10 +20,10 @@ const HomePresentation = ({weatherByCity}) => {
       })}
     </div>
   );
-}
+};
 
 HomePresentation.propTypes = {
   weatherByCity: PropTypes.object.isRequired
-}
+};
 
 export default HomePresentation;

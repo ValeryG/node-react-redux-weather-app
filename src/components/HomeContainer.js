@@ -3,18 +3,28 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import HomePresentation from './HomePresentation';
+import CityAdder from './CityAdder';
 
 import * as weatherInfoActions from '../actions/weatherInfo';
 
 class HomeContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.props.fetchWeatherForCity('Seattle').then(null, error => {
+    this.state = {};
+    const promises = props.cities.map(city => {
+      return this.props.fetchWeatherForCity(city);
+    });
+    // TODO handle error per city
+    Promise.all(promises).then(null, error => {
       this.setState({
         error: error.response.body
       });
     });
-    this.state = {};
+  }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.cities.length > this.props.cities.length) {
+      this.props.fetchWeatherForCity(nextProps.cities[nextProps.cities.length - 1]);
+    }
   }
   render() {
     return (
@@ -24,6 +34,7 @@ class HomeContainer extends React.Component {
         <div>
           {this.state.error && JSON.stringify(this.state.error)}
         </div>
+        <CityAdder />
       </div>
     );
   }
@@ -31,12 +42,14 @@ class HomeContainer extends React.Component {
 
 HomeContainer.propTypes = {
   weatherByCity: PropTypes.object.isRequired,
-  fetchWeatherForCity: PropTypes.func.isRequired
+  fetchWeatherForCity: PropTypes.func.isRequired,
+  cities: PropTypes.arrayOf(PropTypes.string).isRequired
 };
 
 function mapStateToProps(state) {
   return {
-    weatherByCity: state.weatherByCity
+    weatherByCity: state.weatherByCity,
+    cities: state.cities
   };
 }
 
