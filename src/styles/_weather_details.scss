@@ -1,0 +1,24 @@
+.city .weather-info {
+  padding: 24px;
+  .header {
+    height: 50px;
+    margin: 20px;
+    img {
+      float: left;
+    }
+    h2 {
+      margin-left: 60px;
+    }
+  }
+  .main {
+    clear: both;
+    padding: 24px 48px;
+    .column {
+      display: inline-block;
+      width: 25%;
+      padding: 0;
+      margin: 0;
+      vertical-align: top;
+    }
+  }
+};

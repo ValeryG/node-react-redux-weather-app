@@ -6,11 +6,13 @@ import CityContainer from './CityContainer';
 import CityList from './CityList';
 
 import * as weatherInfoActions from '../actions/weatherInfo';
+import * as CitiesActions from '../actions/cities';
 
 class HomeContainer extends React.Component {
   componentWillMount() {
     this.props.fetchWeatherForCity('Seattle');
     this.props.fetchWeatherForCity('Minneapolis');
+    this.props.selectCity('Seattle');
   }
   render() {
     const selected = this.props.selectedCity;
@@ -29,7 +31,8 @@ HomeContainer.propTypes = {
   weatherByCity: PropTypes.object.isRequired,
   fetchWeatherForCity: PropTypes.func.isRequired,
   cities: PropTypes.arrayOf(PropTypes.string).isRequired,
-  selectedCity: PropTypes.string
+  selectedCity: PropTypes.string,
+  selectCity: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {
@@ -44,6 +47,9 @@ function mapDispatchToProps(dispatch) {
   return {
     fetchWeatherForCity: function(city) {
       return dispatch(weatherInfoActions.addAndFetchForCityIfNecessary(city));
+    },
+    selectCity: function(city) {
+      dispatch(CitiesActions.select(city));
     }
   };
 }

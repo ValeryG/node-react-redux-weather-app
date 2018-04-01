@@ -1,4 +1,5 @@
 @import "city_list";
+@import "weather_details";
 
 .my-app-root {
   p {
@@ -14,4 +15,5 @@ html, body, #react-root {
 
 .home .city {
   margin-left: $listWidth + 1;
+  padding: 36px;
 }
