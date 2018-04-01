@@ -4,6 +4,8 @@ import {connect} from 'react-redux';
 
 import {remove} from '../actions/cities';
 
+const ICON_BASE_URL = 'http://openweathermap.org/img/w/';
+
 const StillLoading = () => {
   return (
     <div>
@@ -24,6 +26,9 @@ const Weather = ({onRemove, weatherInfo}) => {
       {weatherInfo.data &&
         <div>
           {JSON.stringify(weatherInfo.data)}
+          <div>
+            <img src={`${ICON_BASE_URL}${weatherInfo.data.weather[0].icon}.png`} />
+          </div>
         </div>
       }
     </div>
