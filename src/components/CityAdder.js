@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
-import * as CitiesActions from '../actions/cities';
+import {addAndFetchForCityIfNecessary} from '../actions/weatherInfo';
 
 class CityAdder extends React.Component {
   constructor(props) {
@@ -48,7 +48,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     addCity: function(city) {
-      dispatch(CitiesActions.add(city));
+      dispatch(addAndFetchForCityIfNecessary(city));
     }
   };
 }

@@ -4,16 +4,46 @@ import {connect} from 'react-redux';
 
 import {remove} from '../actions/cities';
 
+const StillLoading = () => {
+  return (
+    <div>
+      <p>Please wait...</p>
+    </div>
+  );
+};
+
+const Weather = ({onRemove, weatherInfo}) => {
+  return (
+    <div>
+      <div>
+        <button onClick={onRemove}>Remove</button>
+      </div>
+      {weatherInfo.error && <div>
+        {JSON.stringify(weatherInfo.error)}
+      </div>}
+      {weatherInfo.data &&
+        <div>
+          {JSON.stringify(weatherInfo.data)}
+        </div>
+      }
+    </div>
+  );
+};
+
+Weather.propTypes = {
+  weatherInfo: PropTypes.object.isRequired,
+  onRemove: PropTypes.func.isRequired
+};
+
 const WeatherInfo = ({city, removeCity, weatherByCity}) => {
+  const weatherForCity = weatherByCity[city];
   return (
     <div>
       <div>{city}</div>
-      <div>
-        <button onClick={ function() { removeCity(city); }}>Remove</button>
-      </div>
-      <div>
-        {JSON.stringify(weatherByCity[city])}
-      </div>
+      {weatherForCity.fetching && <StillLoading />}
+      {!weatherForCity.fetching && <Weather
+        weatherInfo={weatherForCity}
+        onRemove={function() { removeCity(city); }} />}
     </div>
   );
 };

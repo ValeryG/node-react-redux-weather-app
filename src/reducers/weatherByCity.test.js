@@ -5,23 +5,70 @@ describe('weatherByCity reducer', () => {
     expect(fixture(undefined, {type: 'hello'})).toEqual({});
   });
   it('should receive weather info by city', () => {
+    const city = 'VAncOUver';
     const initialState = {
-      london: {
-        temperature: 32
+      [city.toUpperCase()]: {
+        fetching: true,
+        error: null,
+        data: null
       }
+    };
+    const info = {
+      temperature: 24
     };
     expect(
       fixture(initialState, {
         type: 'RECEIVE_WEATHER_INFO',
-        city: 'vancouver',
-        info: {
-          temperature: 24
-        }
+        city,
+        info
       })
     ).toEqual({
       ...initialState,
-      vancouver: {
-        temperature: 24
+      [city.toUpperCase()]: {
+        fetching: false,
+        data: info,
+        error: null
+      }
+    });
+  });
+  it('should set info for city to fetching', () => {
+    const city = 'VanCoUver';
+    expect(
+      fixture({}, {
+        type: 'FETCH_WEATHER_INFO',
+        city
+      })
+    ).toEqual({
+      [city.toUpperCase()]: {
+        fetching: true,
+        error: null,
+        data: null
+      }
+    });
+  });
+  it('should set error if fetching failed', () => {
+    const city = 'Vancouver';
+    const initialState = {
+      [city.toUpperCase()]: {
+        fetching: true,
+        error: null,
+        data: null
+      }
+    };
+    const error = {
+      response: {}
+    };
+    expect(
+      fixture(initialState, {
+        type: 'FETCH_WEATHER_INFO_FAILED',
+        city,
+        error
+      })
+    ).toEqual({
+      [city.toUpperCase()]: {
+        fetching: false,
+        error,
+        data: null
       }
     });
   });
