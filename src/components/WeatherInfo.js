@@ -14,9 +14,24 @@ const StillLoading = () => {
   );
 };
 
-const Weather = ({onRemove, weatherInfo}) => {
+const LabelAndValue = ({label, value}) => {
   return (
     <div>
+      <label>{label} </label><span>{value}</span>
+    </div>
+  );
+};
+
+LabelAndValue.propTypes = {
+  label: PropTypes.node,
+  value: PropTypes.node
+};
+
+const Weather = ({onRemove, weatherInfo}) => {
+  const weatherData = weatherInfo.data ? weatherInfo.data.weather[0] : null;
+  const weatherDetails = weatherInfo.data ? weatherInfo.data.main : null;
+  return (
+    <div style={{marginBottom: '2em'}}>
       <div>
         <button onClick={onRemove}>Remove</button>
       </div>
@@ -25,9 +40,31 @@ const Weather = ({onRemove, weatherInfo}) => {
       </div>}
       {weatherInfo.data &&
         <div>
-          {JSON.stringify(weatherInfo.data)}
           <div>
-            <img src={`${ICON_BASE_URL}${weatherInfo.data.weather[0].icon}.png`} />
+            <div>
+              <h2>{weatherData.main}</h2>
+              <h3>{weatherData.description}</h3>
+            </div>
+            <div>
+              <img src={`${ICON_BASE_URL}${weatherData.icon}.png`} />
+            </div>
+            <div>
+              <LabelAndValue
+                label="Current Temperature"
+                value={`${weatherDetails.temp} degrees`} />
+              <LabelAndValue
+                label="Pressure"
+                value={`${weatherDetails.pressure} hPa`} />
+              <LabelAndValue
+                label="Humidity"
+                value={`${weatherDetails.humidity} %`} />
+              <LabelAndValue
+                label="Min"
+                value={`${weatherDetails.temp_min} degrees`} />
+              <LabelAndValue
+                label="Max"
+                value={`${weatherDetails.temp_max} degrees`} />
+            </div>
           </div>
         </div>
       }
@@ -44,7 +81,7 @@ const WeatherInfo = ({city, removeCity, weatherByCity}) => {
   const weatherForCity = weatherByCity[city];
   return (
     <div>
-      <div>{city}</div>
+      <div><h1>{city}</h1></div>
       {weatherForCity.fetching && <StillLoading />}
       {!weatherForCity.fetching && <Weather
         weatherInfo={weatherForCity}
