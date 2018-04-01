@@ -22,12 +22,13 @@ describe('weatherInfo actions', () => {
   });
   describe('addAndFetchForCityIfNecessary()', () => {
     it('should call weather API and dispatch action with response', () => {
+      const body = {
+        temp: 277.14,
+        pressure: 993,
+        humidity: 80
+      };
       const response = {
-        main: {
-          temp: 277.14,
-          pressure: 993,
-          humidity: 80
-        }
+        body
       };
       const city = 'Vancouver';
       weatherApi.getWeatherForCity.mockResolvedValue(response);
@@ -45,7 +46,7 @@ describe('weatherInfo actions', () => {
           {
             type: 'RECEIVE_WEATHER_INFO',
             city,
-            info: response
+            info: body
           }
         ]);
         expect(weatherApi.getWeatherForCity).toBeCalledWith(city);

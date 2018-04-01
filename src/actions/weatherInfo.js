@@ -36,7 +36,7 @@ export function addAndFetchForCityIfNecessary(city) {
     const promise = WeatherApi.getWeatherForCity(city);
     promise.then(
       response => {
-        dispatch(receiveWeatherInfo(city, response));
+        dispatch(receiveWeatherInfo(city, response.body));
       },
       error => {
         dispatch(fetchWeatherInfoFailed(city, error));
