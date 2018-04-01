@@ -1,5 +1,17 @@
+@import "city_list";
+
 .my-app-root {
   p {
     text-align: center;
   }
+}
+
+html, body, #react-root {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.home .cities {
+  margin-left: $listWidth + 1;
 }

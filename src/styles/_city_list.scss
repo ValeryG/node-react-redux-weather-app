@@ -1,0 +1,19 @@
+$listWidth:10%;
+
+.home .city-list {
+  position: fixed;
+  padding: 10px;
+  min-height: 100%;
+  box-sizing: border-box;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    padding: 5px;
+    margin: 0;
+  }
+  width: $listWidth;
+  border-right: 1px solid black;
+}

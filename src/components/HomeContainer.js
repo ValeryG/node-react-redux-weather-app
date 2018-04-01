@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import CityContainer from './CityContainer';
-import CityAdder from './CityAdder';
+import CityList from './CityList';
 
 import * as weatherInfoActions from '../actions/weatherInfo';
 
@@ -14,11 +14,13 @@ class HomeContainer extends React.Component {
   }
   render() {
     return (
-      <div>
-        {this.props.cities.map(city => {
-          return <CityContainer city={city} key={city} />;
-        })}
-        <CityAdder />
+      <div className="home">
+        <CityList />
+        <div className="cities">
+          {this.props.cities.map(city => {
+            return <CityContainer city={city} key={city} />;
+          })}
+        </div>
       </div>
     );
   }
