@@ -16,9 +16,15 @@
     .column {
       display: inline-block;
       width: 25%;
-      padding: 0;
+      box-sizing: border-box;
       margin: 0;
       vertical-align: top;
+      .details {
+        padding: 0 20px;
+      }
     }
+  }
+  .label-container {
+    margin: 8px 0;
   }
 };

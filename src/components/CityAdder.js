@@ -17,7 +17,7 @@ class CityAdder extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="city-adder">
         <form onSubmit={this.onSubmit}>
           <input
             value={this.state.city}

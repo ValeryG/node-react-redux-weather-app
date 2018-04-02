@@ -5,7 +5,7 @@ const ICON_BASE_URL = 'http://openweathermap.org/img/w/';
 
 const LabelAndValue = ({label, value}) => {
   return (
-    <div>
+    <div className="label-container">
       <label>{label} </label><span>{value}</span>
     </div>
   );
@@ -50,51 +50,59 @@ const WeatherDetails = ({weather, main, other}) => {
           <div>
             <h4>Stats</h4>
           </div>
-          <LabelAndValue
-            label="Min"
-            value={`${main.temp_min} degrees`} />
-          <LabelAndValue
-            label="Max"
-            value={`${main.temp_max} degrees`} />
-          <LabelAndValue
-            label="Pressure"
-            value={`${main.pressure}hPa`} />
-          <LabelAndValue
-            label="Humidity"
-            value={`${main.humidity}%`} />
+          <div className="details">
+            <LabelAndValue
+              label="Min"
+              value={`${main.temp_min} degrees`} />
+            <LabelAndValue
+              label="Max"
+              value={`${main.temp_max} degrees`} />
+            <LabelAndValue
+              label="Pressure"
+              value={`${main.pressure}hPa`} />
+            <LabelAndValue
+              label="Humidity"
+              value={`${main.humidity}%`} />
+          </div>
         </div>
         <div className="column">
           <div>
             <h4>Clouds and Visiblity</h4>
           </div>
-          <LabelAndValue
-            label="Cloud Percentage"
-            value={`${other.clouds.all}%`} />
-          <LabelAndValue
-            label="Visibility"
-            value={`${other.visibility} meters`} />
+          <div className="details">
+            <LabelAndValue
+              label="Cloud Percentage"
+              value={`${other.clouds.all}%`} />
+            <LabelAndValue
+              label="Visibility"
+              value={`${other.visibility} meters`} />
+          </div>
         </div>
         <div className="column">
           <div>
             <h4>Wind</h4>
           </div>
-          <LabelAndValue
-            label="Speed"
-            value={`${other.wind.speed} miles/hr`} />
-          <LabelAndValue
-            label="Direction"
-            value={`${other.wind.deg} degrees`} />
+          <div className="details">
+            <LabelAndValue
+              label="Speed"
+              value={`${other.wind.speed} miles/hr`} />
+            <LabelAndValue
+              label="Direction"
+              value={`${other.wind.deg} degrees`} />
+          </div>
         </div>
         <div className="column">
           <div>
             <h4>Precipitation</h4>
           </div>
-          <LabelAndValue
-            label=""
-            value={`${other.snow ? other.snow : 'No'} snow in the last 3 hours`} />
-          <LabelAndValue
-            label=""
-            value={`${other.rain ? other.rain : 'No'} rain in the last 3 hours`} />
+          <div className="details">
+            <LabelAndValue
+              label=""
+              value={`${other.snow ? other.snow : 'No'} snow in the last 3 hours`} />
+            <LabelAndValue
+              label=""
+              value={`${other.rain ? other.rain : 'No'} rain in the last 3 hours`} />
+          </div>
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 @import "city_list";
+@import "city_adder";
 @import "weather_details";
 
 .my-app-root {
@@ -11,6 +12,8 @@ html, body, #react-root {
   height: 100%;
   padding: 0;
   margin: 0;
+  font-family: Avenir Next, Arial, sans-serif;
+  font-size: 1.025em;
 }
 
 .home .city {
