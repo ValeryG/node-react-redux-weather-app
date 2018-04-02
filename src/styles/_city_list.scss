@@ -1,8 +1,8 @@
-$listWidth: 10%;
+$listWidth: 14%;
 
 .home .city-list {
   position: fixed;
-  padding: 10px;
+  padding: 20px;
   min-height: 100%;
   box-sizing: border-box;
   ul {
@@ -16,6 +16,8 @@ $listWidth: 10%;
     button {
       height: 100%;
       border: none;
+      background-color: inherit;
+      color: inherit;
       text-align: left;
       padding: 5px;
       margin: 0;

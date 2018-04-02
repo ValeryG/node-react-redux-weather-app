@@ -20,7 +20,9 @@ class CityAdder extends React.Component {
       <div className="city-adder">
         <form onSubmit={this.onSubmit}>
           <input
+            type="text"
             value={this.state.city}
+            placeholder="Add a city"
             onChange={this.onChange} />
         </form>
         {this.state.error && <div>

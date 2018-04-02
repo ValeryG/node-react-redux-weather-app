@@ -2,7 +2,7 @@
   padding: 24px;
   .header {
     height: 50px;
-    margin: 20px;
+    margin: 36px;
     img {
       float: left;
     }
@@ -12,7 +12,7 @@
   }
   .main {
     clear: both;
-    padding: 24px 48px;
+    padding: 36px 48px;
     .column {
       display: inline-block;
       width: 25%;
@@ -20,11 +20,17 @@
       margin: 0;
       vertical-align: top;
       .details {
-        padding: 0 20px;
+        padding: 0 36px;
       }
     }
   }
   .label-container {
     margin: 8px 0;
+    label {
+      font-weight: 500;
+    }
+    span {
+      float: right;
+    }
   }
 };

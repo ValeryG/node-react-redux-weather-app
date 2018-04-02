@@ -6,7 +6,7 @@ const ICON_BASE_URL = 'http://openweathermap.org/img/w/';
 const LabelAndValue = ({label, value}) => {
   return (
     <div className="label-container">
-      <label>{label} </label><span>{value}</span>
+      <label>{label}</label><span>{value}</span>
     </div>
   );
 };
@@ -86,9 +86,9 @@ const WeatherDetails = ({weather, main, other}) => {
             <LabelAndValue
               label="Speed"
               value={`${other.wind.speed} miles/hr`} />
-            <LabelAndValue
+            {other.wind.deg && <LabelAndValue
               label="Direction"
-              value={`${other.wind.deg} degrees`} />
+              value={`${other.wind.deg} degrees`} />}
           </div>
         </div>
         <div className="column">
@@ -98,10 +98,10 @@ const WeatherDetails = ({weather, main, other}) => {
           <div className="details">
             <LabelAndValue
               label=""
-              value={`${other.snow ? other.snow : 'No'} snow in the last 3 hours`} />
+              value={`${other.snow ? other.snow['3h'] : 'No'} snow in the last 3 hours`} />
             <LabelAndValue
               label=""
-              value={`${other.rain ? other.rain : 'No'} rain in the last 3 hours`} />
+              value={`${other.rain ? other.rain['3h'] : 'No'} rain in the last 3 hours`} />
           </div>
         </div>
       </div>
