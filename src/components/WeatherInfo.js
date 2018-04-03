@@ -113,12 +113,12 @@ const WeatherDetails = ({weather, main, other, city}) => {
             <h4>Precipitation</h4>
           </div>
           <div className="details">
-            <LabelAndValue
-              label=""
-              value={`${other.snow ? other.snow['3h'] : 'No'} snow in the last 3 hours`} />
-            <LabelAndValue
-              label=""
-              value={`${other.rain ? other.rain['3h'] : 'No'} rain in the last 3 hours`} />
+            <div>
+              {other.snow ? other.snow['3h'] : 'No'} snow in the last 3 hours
+            </div>
+            <div>
+              {other.rain ? other.rain['3h'] : 'No'} rain in the last 3 hours
+            </div>
           </div>
         </div>
       </div>

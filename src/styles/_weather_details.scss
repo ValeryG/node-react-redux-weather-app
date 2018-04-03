@@ -1,6 +1,8 @@
+$weatherInfoColour: lighten($grey, 30%);
+
 .city .weather-info {
   background-color: $darkBlue;
-  color: lighten($grey, 30%);
+  color: $weatherInfoColour;
   font-weight: 200;
   height: 100%;
   .main {
@@ -8,19 +10,19 @@
     padding: 36px 48px;
     .column {
       display: inline-block;
-      width: 25%;
+      width: 23%;
+      padding: 0 2%;
       box-sizing: border-box;
       margin: 0;
       vertical-align: top;
-      .details {
-        padding: 0 36px;
-      }
     }
   }
+  .details {
+    padding: 0 5px;
+  }
   .label-container {
-    margin: 8px 0;
     label {
-      font-weight: 500;
+      color: darken($weatherInfoColour, 15%);
     }
     span {
       float: right;
