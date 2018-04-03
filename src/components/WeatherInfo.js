@@ -3,6 +3,20 @@ import PropTypes from 'prop-types';
 
 const ICON_BASE_URL = 'http://openweathermap.org/img/w/';
 
+const Header = ({children, city}) => {
+  return (
+    <div className="header">
+      <div><h1>{city}</h1></div>
+      {children}
+    </div>
+  );
+};
+
+Header.propTypes = {
+  city: PropTypes.string.isRequired,
+  children: PropTypes.node
+};
+
 const LabelAndValue = ({label, value}) => {
   return (
     <div className="label-container">
@@ -38,13 +52,16 @@ ErrorInfo.propTypes = {
   error: PropTypes.object
 };
 
-const WeatherDetails = ({weather, main, other}) => {
+const WeatherDetails = ({weather, main, other, city}) => {
   return (
     <div>
-      <div className="header">
-        <img src={`${ICON_BASE_URL}${weather.icon}.png`} />
-        <h2>{weather.description} - {main.temp} degrees</h2>
-      </div>
+      <Header
+        city={city}>
+        <div className="icon-container">
+          <img src={`${ICON_BASE_URL}${weather.icon}.png`} />
+          <h2>{weather.description} - {main.temp} degrees</h2>
+        </div>
+      </Header>
       <div className="main">
         <div className="column">
           <div>
@@ -112,10 +129,11 @@ const WeatherDetails = ({weather, main, other}) => {
 WeatherDetails.propTypes = {
   main: PropTypes.object,
   weather: PropTypes.object,
-  other: PropTypes.object
+  other: PropTypes.object,
+  city: PropTypes.string.isRequired
 };
 
-const WeatherInfo = ({weatherInfo}) => {
+const WeatherInfo = ({city, weatherInfo}) => {
   const weather = weatherInfo.data ? weatherInfo.data.weather[0] : null;
   const main = weatherInfo.data ? weatherInfo.data.main : null;
   const other = weatherInfo.data ? {
@@ -126,19 +144,21 @@ const WeatherInfo = ({weatherInfo}) => {
     rain: weatherInfo.data.rain
   } : null;
   return (
-    <div className="weather-info" style={{marginBottom: '2em'}}>
+    <div className="weather-info">
       <ErrorInfo
         error={weatherInfo.error} />
       {!weatherInfo.error && <WeatherDetails
         weather={weather}
         main={main}
-        other={other} />}
+        other={other}
+        city={city} />}
     </div>
   );
 };
 
 WeatherInfo.propTypes = {
-  weatherInfo: PropTypes.object.isRequired
+  weatherInfo: PropTypes.object.isRequired,
+  city: PropTypes.string.isRequired
 };
 
 export default WeatherInfo;

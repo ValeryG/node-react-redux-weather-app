@@ -1,3 +1,6 @@
+// Colours must come before other components
+@import "colours";
+
 @import "city_list";
 @import "city_adder";
 @import "weather_details";
@@ -17,6 +20,5 @@ html, body, #react-root {
 }
 
 .home .city {
-  margin-left: $listWidth + 1;
-  padding: 36px;
+  margin-left: $listWidth;
 }

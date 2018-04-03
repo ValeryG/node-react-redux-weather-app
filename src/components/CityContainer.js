@@ -11,10 +11,10 @@ const CityContainer = ({city, removeCity, weatherByCity}) => {
   const weatherForCity = weatherByCity[city];
   return (
     <div>
-      <div><h1>{city}</h1></div>
       {weatherForCity.fetching && <LoadingWidget />}
       {!weatherForCity.fetching && <WeatherInfo
-        weatherInfo={weatherForCity} />}
+        weatherInfo={weatherForCity}
+        city={city} />}
     </div>
   );
 };

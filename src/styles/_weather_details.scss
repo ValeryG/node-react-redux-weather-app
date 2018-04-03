@@ -1,15 +1,8 @@
 .city .weather-info {
-  padding: 24px;
-  .header {
-    height: 50px;
-    margin: 36px;
-    img {
-      float: left;
-    }
-    h2 {
-      margin-left: 60px;
-    }
-  }
+  background-color: $darkBlue;
+  color: lighten($grey, 30%);
+  font-weight: 200;
+  height: 100%;
   .main {
     clear: both;
     padding: 36px 48px;
@@ -34,3 +27,22 @@
     }
   }
 };
+
+.icon-container {
+  padding: 36px 56px;
+}
+
+.header {
+  padding: 64px 72px;
+  img {
+    float: left;
+  }
+  h1, h2 {
+    font-weight: 600;
+    padding: 0;
+    margin: 0;
+  }
+  h2 {
+    margin-left: 60px;
+  }
+}
