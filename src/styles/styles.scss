@@ -1,9 +1,12 @@
 // Colours must come before other components
 @import "colours";
+// Sizes must come before components
+@import "sizes";
 
 @import "city_list";
 @import "city_adder";
 @import "weather_details";
+@import "navbar";
 
 .my-app-root {
   p {
@@ -19,6 +22,6 @@ html, body, #react-root {
   font-size: 1.025em;
 }
 
-.home .city {
-  margin-left: $listWidth;
+.icon-container {
+  display: inline-block;
 }

@@ -6,9 +6,9 @@ import CityAdder from './CityAdder';
 
 import {select as selectCity, remove as removeCity} from '../actions/cities';
 
-const CityList = ({cities, selectCity, removeCity}) => {
+const CityList = ({cities, selectCity, removeCity, sidebarOpen}) => {
   return (
-    <div className="city-list">
+    <div className={`city-list ${sidebarOpen ? 'open' : ''}`}>
       <CityAdder />
       <ul>
         {cities.map(city => {
@@ -29,12 +29,14 @@ const CityList = ({cities, selectCity, removeCity}) => {
 CityList.propTypes = {
   cities: PropTypes.arrayOf(PropTypes.string).isRequired,
   selectCity: PropTypes.func.isRequired,
-  removeCity: PropTypes.func.isRequired
+  removeCity: PropTypes.func.isRequired,
+  sidebarOpen: PropTypes.bool.isRequired
 };
 
 function mapStateToProps(state) {
   return {
-    cities: state.cities
+    cities: state.cities,
+    sidebarOpen: state.sidebarOpen
   };
 }
 

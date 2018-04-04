@@ -1,22 +1,54 @@
-$weatherInfoColour: lighten($grey, 30%);
+$weatherInfoColour: lighten($grey, 50%);
+
+@media(min-width: 1000px) {
+  .home .city {
+    margin-left: $listWidth;
+  }
+  .header {
+    padding: 64px 72px;
+  }
+  .icon-container {
+    padding: 36px 56px;
+  }
+  .weather-info {
+    .main {
+      clear: both;
+      padding: 36px 48px;
+      .column {
+        display: inline-block;
+        box-sizing: border-box;
+        width: 23%;
+        padding: 0 2%;
+        margin: 0;
+        vertical-align: top;
+      }
+    }
+  }
+}
+
+@media(max-width: 700px) {
+  .header {
+    padding: 36px 7%;
+  }
+  .weather-icon-container {
+    padding: 72px 15%;
+  }
+  .main {
+    padding: 0 5%;
+    .column {
+      padding-left: 3%;
+      padding-right: 3%;
+      padding-bottom: 48px;
+      border-top: 1px solid $weatherInfoColour;
+    }
+  }
+}
 
 .city .weather-info {
   background-color: $darkBlue;
   color: $weatherInfoColour;
   font-weight: 200;
-  height: 100%;
-  .main {
-    clear: both;
-    padding: 36px 48px;
-    .column {
-      display: inline-block;
-      width: 23%;
-      padding: 0 2%;
-      box-sizing: border-box;
-      margin: 0;
-      vertical-align: top;
-    }
-  }
+  min-height: 100%;
   .details {
     padding: 0 5px;
   }
@@ -30,12 +62,7 @@ $weatherInfoColour: lighten($grey, 30%);
   }
 };
 
-.icon-container {
-  padding: 36px 56px;
-}
-
 .header {
-  padding: 64px 72px;
   img {
     float: left;
   }

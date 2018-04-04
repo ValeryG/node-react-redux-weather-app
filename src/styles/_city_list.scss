@@ -1,9 +1,9 @@
 $listWidth: 14%;
+$mobileListWidth: 80%;
 
-.home .city-list {
+.city-list {
   position: fixed;
   padding: 20px;
-  min-height: 100%;
   box-sizing: border-box;
   ul {
     list-style: none;
@@ -11,6 +11,7 @@ $listWidth: 14%;
     margin: 0;
   }
   li {
+    height: 30px;
     padding: 7px 0;
     margin: 0;
     button {
@@ -31,6 +32,27 @@ $listWidth: 14%;
   input {
     width: 80%;
   }
-  width: $listWidth;
   border-right: 1px solid $lightBlue;
+  background-color: white;
+}
+
+@media all and (max-width: 600px) {
+  .city-list {
+    display: none;
+    height: 100%;
+    width: $mobileListWidth;
+    .city-adder {
+      display: none;
+    }
+  }
+  .city-list.open {
+    display: block;
+  }
+}
+
+@media all and (min-width: 1000px) {
+  .city-list {
+    width: $listWidth;
+    min-height: 100%;
+  }
 }

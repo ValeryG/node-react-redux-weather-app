@@ -1,5 +1,7 @@
-$grey: #B0D0D3;
-$lightBlue: #5FA8D3;
-$darkBlue: #1B4965;
-$teal: #62B6CB;
-$green: #32533D;
+$lightenAmount: 15;
+
+$grey: lighten(#B0D0D3, $lightenAmount);
+$lightBlue: lighten(#5FA8D3, $lightenAmount);
+$darkBlue: lighten(#1B4965, $lightenAmount);
+$teal: lighten(#62B6CB, $lightenAmount);
+$green: lighten(#32533D, $lightenAmount);

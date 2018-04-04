@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 
 import CityContainer from './CityContainer';
 import CityList from './CityList';
+import Navbar from './Navbar';
 
 import * as weatherInfoActions from '../actions/weatherInfo';
 import * as CitiesActions from '../actions/cities';
@@ -18,6 +19,7 @@ class HomeContainer extends React.Component {
     const selected = this.props.selectedCity;
     return (
       <div className="home">
+        <Navbar />
         <CityList />
         <div className="city">
           {selected && <CityContainer city={selected} />}

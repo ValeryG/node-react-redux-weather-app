@@ -57,7 +57,7 @@ const WeatherDetails = ({weather, main, other, city}) => {
     <div>
       <Header
         city={city}>
-        <div className="icon-container">
+        <div className="weather-icon-container">
           <img src={`${ICON_BASE_URL}${weather.icon}.png`} />
           <h2>{weather.description} - {main.temp} degrees</h2>
         </div>
