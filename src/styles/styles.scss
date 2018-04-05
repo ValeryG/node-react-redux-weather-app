@@ -20,6 +20,8 @@ html, body, #react-root {
   margin: 0;
   font-family: Avenir Next, Arial, sans-serif;
   font-size: 1.025em;
+  background-color: $darkBlue;
+  color: $weatherInfoColour;
 }
 
 .icon-container {

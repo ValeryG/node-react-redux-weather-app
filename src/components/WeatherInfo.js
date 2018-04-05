@@ -63,61 +63,65 @@ const WeatherDetails = ({weather, main, other, city}) => {
         </div>
       </Header>
       <div className="main">
-        <div className="column">
-          <div>
-            <h4>Stats</h4>
-          </div>
-          <div className="details">
-            <LabelAndValue
-              label="Min"
-              value={`${main.temp_min} degrees`} />
-            <LabelAndValue
-              label="Max"
-              value={`${main.temp_max} degrees`} />
-            <LabelAndValue
-              label="Pressure"
-              value={`${main.pressure}hPa`} />
-            <LabelAndValue
-              label="Humidity"
-              value={`${main.humidity}%`} />
-          </div>
-        </div>
-        <div className="column">
-          <div>
-            <h4>Clouds and Visiblity</h4>
-          </div>
-          <div className="details">
-            <LabelAndValue
-              label="Cloud Percentage"
-              value={`${other.clouds.all}%`} />
-            <LabelAndValue
-              label="Visibility"
-              value={`${other.visibility} meters`} />
-          </div>
-        </div>
-        <div className="column">
-          <div>
-            <h4>Wind</h4>
-          </div>
-          <div className="details">
-            <LabelAndValue
-              label="Speed"
-              value={`${other.wind.speed} miles/hr`} />
-            {other.wind.deg && <LabelAndValue
-              label="Direction"
-              value={`${other.wind.deg} degrees`} />}
-          </div>
-        </div>
-        <div className="column">
-          <div>
-            <h4>Precipitation</h4>
-          </div>
-          <div className="details">
+        <div className="row">
+          <div className="column">
             <div>
-              {other.snow ? other.snow['3h'] : 'No'} snow in the last 3 hours
+              <h4>Stats</h4>
             </div>
+            <div className="details">
+              <LabelAndValue
+                label="Min"
+                value={`${main.temp_min} degrees`} />
+              <LabelAndValue
+                label="Max"
+                value={`${main.temp_max} degrees`} />
+              <LabelAndValue
+                label="Pressure"
+                value={`${main.pressure}hPa`} />
+              <LabelAndValue
+                label="Humidity"
+                value={`${main.humidity}%`} />
+            </div>
+          </div>
+          <div className="column">
             <div>
-              {other.rain ? other.rain['3h'] : 'No'} rain in the last 3 hours
+              <h4>Clouds and Visiblity</h4>
+            </div>
+            <div className="details">
+              <LabelAndValue
+                label="Cloud Percentage"
+                value={`${other.clouds.all}%`} />
+              <LabelAndValue
+                label="Visibility"
+                value={`${other.visibility} meters`} />
+            </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="column">
+            <div>
+              <h4>Wind</h4>
+            </div>
+            <div className="details">
+              <LabelAndValue
+                label="Speed"
+                value={`${other.wind.speed} miles/hr`} />
+              {other.wind.deg && <LabelAndValue
+                label="Direction"
+                value={`${other.wind.deg} degrees`} />}
+            </div>
+          </div>
+          <div className="column">
+            <div>
+              <h4>Precipitation</h4>
+            </div>
+            <div className="details">
+              <div>
+                {other.snow ? other.snow['3h'] : 'No'} snow in the last 3 hours
+              </div>
+              <div>
+                {other.rain ? other.rain['3h'] : 'No'} rain in the last 3 hours
+              </div>
             </div>
           </div>
         </div>

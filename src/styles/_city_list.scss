@@ -1,10 +1,10 @@
-$listWidth: 14%;
-$mobileListWidth: 80%;
-
 .city-list {
   position: fixed;
   padding: 20px;
   box-sizing: border-box;
+  width: $listWidth;
+  color: black;
+  min-height: 100%;
   ul {
     list-style: none;
     padding: 0;
@@ -36,23 +36,15 @@ $mobileListWidth: 80%;
   background-color: white;
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: $maxWidthMobile) {
   .city-list {
     display: none;
     height: 100%;
-    width: $mobileListWidth;
     .city-adder {
       display: none;
     }
   }
   .city-list.open {
     display: block;
-  }
-}
-
-@media all and (min-width: 1000px) {
-  .city-list {
-    width: $listWidth;
-    min-height: 100%;
   }
 }

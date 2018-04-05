@@ -1,9 +1,14 @@
 nav {
   display: block;
+  position: fixed;
+  width: 100%;
+  top: 0;
   padding: 0;
   margin: 0;
   padding: 10px 10%;
-  height: 60px;
+  background-color: white;
+  color: black;
+  height: $navbarHeight;;
   .adder-container {
     display: inline-block;
     width: 75%;
@@ -16,9 +21,13 @@ nav {
     font-size: 36px;
     margin-right: 20px;
   }
+  button {
+    background-color: inherit;
+    border: none;
+  }
 }
 
-@media(min-width: $minDesktopWidth) {
+@media(min-width: $maxWidthMobile + 1) {
   nav {
     display: none;
   }
