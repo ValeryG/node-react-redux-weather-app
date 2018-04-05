@@ -39,9 +39,6 @@ $weatherInfoColour: lighten($grey, 50%);
 }
 
 @media all and (max-width: $maxWidthMobile) {
-  .city {
-    margin-top: $navbarHeight + 24;
-  }
   .header {
     padding: 36px 7%;
   }

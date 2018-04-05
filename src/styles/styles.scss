@@ -27,3 +27,9 @@ html, body, #react-root {
 .icon-container {
   display: inline-block;
 }
+
+@media all and (max-width: $maxWidthMobile) {
+  .home {
+    padding-top: $navbarHeight;
+  }
+}

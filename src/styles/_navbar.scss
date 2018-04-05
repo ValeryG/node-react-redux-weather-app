@@ -8,7 +8,8 @@ nav {
   padding: 10px 10%;
   background-color: white;
   color: black;
-  height: $navbarHeight;;
+  height: $navbarHeight;
+  box-sizing: border-box;
   .adder-container {
     display: inline-block;
     width: 75%;
