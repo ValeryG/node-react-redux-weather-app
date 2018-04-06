@@ -6,16 +6,20 @@ import {remove} from '../actions/cities';
 
 import LoadingWidget from './LoadingWidget';
 import WeatherInfo from './WeatherInfo';
+import ErrorWidget from './ErrorWidget';
 
 const CityContainer = ({city, removeCity, weatherByCity}) => {
   const weatherForCity = weatherByCity[city];
+  if (weatherForCity.fetching) {
+    return <LoadingWidget />;
+  }
+  if (weatherForCity.error) {
+    return <ErrorWidget error={weatherForCity.error} />;
+  }
   return (
-    <div>
-      {weatherForCity.fetching && <LoadingWidget />}
-      {!weatherForCity.fetching && <WeatherInfo
-        weatherInfo={weatherForCity}
-        city={city} />}
-    </div>
+    <WeatherInfo
+      weatherInfo={weatherForCity.data}
+      city={city} />
   );
 };
 
