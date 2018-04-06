@@ -28,6 +28,13 @@ html, body, #react-root {
   display: inline-block;
 }
 
+.container {
+  padding: 5%;
+  p {
+    margin: 3%;
+  }
+}
+
 @media all and (max-width: $maxWidthMobile) {
   .home {
     padding-top: $navbarHeight;

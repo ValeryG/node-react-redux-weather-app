@@ -37,13 +37,9 @@ const ErrorInfo = ({error}) => {
   let errorMessage = error.response.body ? error.response.body.message
     : 'Unknown error occurred. Please try again later';
   return (
-    <div>
-      <div>
-        <h2>Oops! Error has occurred</h2>
-      </div>
-      <div>
-        <p>{errorMessage}</p>
-      </div>
+    <div className="container">
+      <h2>Oops! Error has occurred</h2>
+      <p>{errorMessage}</p>
     </div>
   );
 };
