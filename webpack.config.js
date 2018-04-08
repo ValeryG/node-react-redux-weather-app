@@ -1,5 +1,6 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
 
 const inProductionEnvironment = process.env['NODE_ENV'] === 'production';
 const cssLoaderOptions = inProductionEnvironment ? {
@@ -30,13 +31,9 @@ const sassLoading = inProductionEnvironment ? [
 ];
 
 const config = {
-  entry: './src/app.js',
+  entry: path.join(__dirname, 'src', 'app.js'),
   output: {
-    filename: './bundle.js'
-  },
-  devServer: {
-    contentBase: './',
-    historyApiFallback: true
+    filename: 'bundle.js'
   },
   plugins: [
     new MiniCssExtractPlugin({
@@ -44,7 +41,7 @@ const config = {
     }),
     new HtmlWebpackPlugin({
       hash: true,
-      template: './src/index.html',
+      template: path.join(__dirname, 'src', 'index.html'),
       production: inProductionEnvironment
     })
   ],
@@ -68,7 +65,7 @@ const config = {
     ]
   },
   mode: process.env['NODE_ENV'],
-  devtool: inProductionEnvironment ? undefined : 'cheap-eval-source-map'
+  devtool: inProductionEnvironment ? undefined : 'eval-source-map'
 };
 
 if (inProductionEnvironment) {
