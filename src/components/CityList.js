@@ -6,7 +6,7 @@ import CityAdder from './CityAdder';
 
 import {select as selectCity, remove as removeCity} from '../actions/cities';
 
-const CityList = ({cities, selectCity, removeCity, sidebarOpen}) => {
+export const CityList = ({cities, selectCity, removeCity, sidebarOpen}) => {
   return (
     <div className={`city-list ${sidebarOpen ? 'open' : ''}`}>
       <CityAdder />

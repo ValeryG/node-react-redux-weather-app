@@ -8,7 +8,7 @@ import LoadingWidget from './LoadingWidget';
 import WeatherInfo from './WeatherInfo';
 import ErrorWidget from './ErrorWidget';
 
-const CityContainer = ({city, removeCity, weatherByCity}) => {
+export const CityContainer = ({city, removeCity, weatherByCity}) => {
   const weatherForCity = weatherByCity[city];
   if (weatherForCity.fetching) {
     return <LoadingWidget />;

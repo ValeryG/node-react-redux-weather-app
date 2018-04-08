@@ -9,7 +9,7 @@ import Navbar from './Navbar';
 import * as weatherInfoActions from '../actions/weatherInfo';
 import * as CitiesActions from '../actions/cities';
 
-class HomeContainer extends React.Component {
+export class HomeContainer extends React.Component {
   componentWillMount() {
     this.props.fetchWeatherForCity('Seattle');
     this.props.fetchWeatherForCity('Minneapolis');

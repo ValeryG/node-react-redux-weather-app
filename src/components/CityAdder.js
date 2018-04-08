@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {addAndFetchForCityIfNecessary} from '../actions/weatherInfo';
 import {select as selectCity} from '../actions/cities';
 
-class CityAdder extends React.Component {
+export class CityAdder extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
