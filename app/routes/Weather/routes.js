@@ -1,9 +1,6 @@
-const express = require('express');
-const router = express.Router();
+const WeatherProvider = require('../../services/WeatherProvider');
 
-const WeatherProvider = require('../services/WeatherProvider');
-
-router.get('/city/:name', (req, res) => {
+module.exports.get = function(req, res) {
   WeatherProvider.getForCity(req.params.name).then(
     response => {
       res.status(200).json(response);
@@ -20,6 +17,4 @@ router.get('/city/:name', (req, res) => {
       }
     }
   );
-});
-
-module.exports = router;
+};
