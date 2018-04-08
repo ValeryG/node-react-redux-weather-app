@@ -49,7 +49,7 @@ const WeatherInfo = ({city, weatherInfo}) => {
         <div><h1>{city}</h1></div>
         <div className="weather-icon-container">
           <img src={`${ICON_BASE_URL}${weather.icon}.png`} />
-          <h2>{weather.description} - {main.temp} degrees</h2>
+          <h2>{weather.description} - {main.temp}&deg;F</h2>
         </div>
       </div>
       <div className="main">
@@ -57,8 +57,8 @@ const WeatherInfo = ({city, weatherInfo}) => {
           <Column
             heading="Stats"
             values={{
-              Min: `${main.temp_min} degrees`,
-              Max: `${main.temp_max} degrees`,
+              Min: `${main.temp_min}\u00B0F`,
+              Max: `${main.temp_max}\u00B0F`,
               Pressure: `${main.pressure}hPa`,
               Humidity: `${main.humidity}%`
             }} />
