@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ICON_BASE_URL = 'http://openweathermap.org/img/w/';
+const ICON_BASE_URL = 'https://openweathermap.org/img/w/';
 
 const LabelAndValue = ({label, value}) => {
   if (value === null || value === undefined) {
