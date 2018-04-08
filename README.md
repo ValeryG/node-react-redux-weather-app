@@ -1,6 +1,9 @@
 # Weather app assignment using React
 App demo of NodeJS, ExpressJS, React, and Redux.
 
+# Heroku hosting
+https://takeru-weather-app.herokuapp.com/
+
 # CI Status
 [![Build Status](https://travis-ci.org/tkomiya24/node-react-redux-weather-app.svg?branch=master)](https://travis-ci.org/tkomiya24/node-react-redux-weather-app)
 
