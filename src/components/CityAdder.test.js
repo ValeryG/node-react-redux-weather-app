@@ -33,7 +33,6 @@ describe('CityAdder component', () => {
     expect(props.selectCity).toHaveBeenCalledWith(newCity);
     expect(preventDefault).toHaveBeenCalled();
     expect(enzymeWrapper.state().city).toEqual('');
-    expect(enzymeWrapper.state().error).toEqual('');
   });
 
   it('should not add city if it has been added already', () => {
@@ -43,12 +42,8 @@ describe('CityAdder component', () => {
     const preventDefault = jest.fn();
     enzymeWrapper.find('form').simulate('submit', {preventDefault});
 
-    const expectedError = `${newCity} has already been added`;
-
     expect(props.addCity).toHaveBeenCalledTimes(0);
-    expect(props.selectCity).toHaveBeenCalledTimes(0);
-    expect(enzymeWrapper.state().city).toEqual(newCity);
-    expect(enzymeWrapper.state().error).toEqual(expectedError);
-    expect(enzymeWrapper.find('div').at(1).text()).toEqual(expectedError);
+    expect(props.selectCity).toHaveBeenCalledWith(newCity);
+    expect(enzymeWrapper.state().city).toEqual('');
   });
 });

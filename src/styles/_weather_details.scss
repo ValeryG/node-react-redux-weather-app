@@ -4,18 +4,14 @@ $weatherInfoColour: lighten($grey, 50%);
   .home .city {
     margin-left: $listWidth;
   }
-  .header {
-    padding: 64px 72px;
-  }
-  .icon-container {
-    padding: 36px 56px;
+  .weather-icon-container {
+    padding: 64px 48px;
   }
   .weather-info {
     .main {
       display: flex;
       flex-wrap: wrap;
       box-sizing: border-box;
-      padding: 36px 82px;
       justify-content: space-evenly;
       align-items: flex-start;
       align-content: space-around;
@@ -32,24 +28,20 @@ $weatherInfoColour: lighten($grey, 50%);
         flex-grow: 1;
         padding: 48px 24px;
         width: 275px;
-        max-width: 450px;
+        max-width: 300px;
       }
     }
   }
 }
 
 @media all and (max-width: $maxWidthMobile) {
-  .header {
-    padding: 36px 7%;
-  }
   .weather-icon-container {
-    padding: 72px 15%;
+    padding: 52px 10%;
   }
   .main {
-    padding: 0 5%;
     .column {
-      padding-left: 3%;
-      padding-right: 3%;
+      padding-left: 2%;
+      padding-right: 2%;
       padding-bottom: 48px;
       border-top: 1px solid $weatherInfoColour;
     }

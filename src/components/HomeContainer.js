@@ -21,7 +21,7 @@ export class HomeContainer extends React.Component {
       <div className="home">
         <Navbar />
         <CityList />
-        <div className="city">
+        <div>
           {selected && <CityContainer city={selected} />}
         </div>
       </div>

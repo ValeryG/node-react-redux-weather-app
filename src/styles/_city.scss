@@ -1,0 +1,11 @@
+@media all and (min-width: $maxWidthMobile + 1) {
+  .city {
+    padding: 64px 64px;
+  }
+}
+
+@media all and (max-width: $maxWidthMobile) {
+  .city {
+    padding: 48px 7%;
+  }
+}

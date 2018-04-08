@@ -7,6 +7,7 @@
 @import "city_adder";
 @import "weather_details";
 @import "navbar";
+@import "city";
 
 .my-app-root {
   p {
@@ -14,14 +15,17 @@
   }
 }
 
+html {
+  font-family: Avenir Next, Roboto, Arial, sans-serif;
+  font-size: 1.025em;
+  background-color: $darkBlue;
+  color: $weatherInfoColour;
+}
+
 html, body, #react-root {
   height: 100%;
   padding: 0;
   margin: 0;
-  font-family: Avenir Next, Arial, sans-serif;
-  font-size: 1.025em;
-  background-color: $darkBlue;
-  color: $weatherInfoColour;
 }
 
 .icon-container {

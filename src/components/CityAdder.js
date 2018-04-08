@@ -9,8 +9,7 @@ export class CityAdder extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      city: '',
-      error: ''
+      city: ''
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -25,9 +24,6 @@ export class CityAdder extends React.Component {
             placeholder="Add a city"
             onChange={this.onChange} />
         </form>
-        {this.state.error && <div>
-          {this.state.error}
-        </div>}
       </div>
     );
   }
@@ -38,18 +34,13 @@ export class CityAdder extends React.Component {
   }
   onSubmit(event) {
     event.preventDefault();
-    if (this.props.cities.includes(this.state.city.toUpperCase())) {
-      this.setState({
-        error: `${this.state.city} has already been added`
-      });
-    } else {
+    if (!this.props.cities.includes(this.state.city.toUpperCase())) {
       this.props.addCity(this.state.city);
-      this.props.selectCity(this.state.city);
-      this.setState({
-        city: '',
-        error: ''
-      });
     }
+    this.props.selectCity(this.state.city);
+    this.setState({
+      city: ''
+    });
   }
 };
 

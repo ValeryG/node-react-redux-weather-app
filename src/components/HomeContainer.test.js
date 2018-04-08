@@ -21,7 +21,7 @@ function setup(selectedCity) {
   };
 }
 
-describe('CityContainer component', () => {
+describe('HomeContainer component', () => {
   it('should dispatch actions on mount', () => {
     const {props} = setup('');
     expect(props.fetchWeatherForCity).toHaveBeenCalledWith('Seattle');
@@ -31,7 +31,7 @@ describe('CityContainer component', () => {
 
   it('should render city information if a city is selected', () => {
     const {enzymeWrapper} = setup('Vancouver');
-    expect(enzymeWrapper.find('.city').children().length).toBeGreaterThan(0);
+    expect(enzymeWrapper.find('div').at(1).children().length).toBeGreaterThan(0);
   });
 
   it('should render not render city information if a city is not selected', () => {

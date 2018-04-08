@@ -45,12 +45,9 @@ const WeatherInfo = ({city, weatherInfo}) => {
   const wind = weatherInfo.wind;
   return (
     <div className="weather-info">
-      <div className="header">
-        <div><h1>{city}</h1></div>
-        <div className="weather-icon-container">
-          <img src={`${ICON_BASE_URL}${weather.icon}.png`} />
-          <h2>{weather.description} - {main.temp}&deg;F</h2>
-        </div>
+      <div className="weather-icon-container">
+        <img src={`${ICON_BASE_URL}${weather.icon}.png`} />
+        <h2>{weather.description} - {main.temp}&deg;F</h2>
       </div>
       <div className="main">
         <div className="row">

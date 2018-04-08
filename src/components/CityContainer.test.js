@@ -35,10 +35,10 @@ describe('CityContainer component', () => {
     };
     const {enzymeWrapper} = setup(city, weatherByCity);
 
-    expect(enzymeWrapper.childAt(0).matchesElement(
+    expect(enzymeWrapper.childAt(0).childAt(1).matchesElement(
       <LoadingWidget />
     )).toBe(true);
-    expect(enzymeWrapper.children().length).toEqual(1);
+    expect(enzymeWrapper.childAt(0).children().length).toEqual(2);
   });
   it('should display WeatherInfo component if data has been fetched successfully', () => {
     const city = 'VANCOUVER';
@@ -56,10 +56,10 @@ describe('CityContainer component', () => {
     };
     const {enzymeWrapper} = setup(city, weatherByCity);
 
-    expect(enzymeWrapper.childAt(0).matchesElement(
+    expect(enzymeWrapper.childAt(0).childAt(1).matchesElement(
       <WeatherInfo city={city} weatherInfo={weatherByCity[city].data} />
     )).toBe(true);
-    expect(enzymeWrapper.children().length).toEqual(1);
+    expect(enzymeWrapper.childAt(0).children().length).toEqual(2);
   });
   it('should display ErrorWidget if error occurred in fetching data', () => {
     const city = 'VANCOUVER';
@@ -79,9 +79,9 @@ describe('CityContainer component', () => {
     };
     const {enzymeWrapper} = setup(city, weatherByCity);
 
-    expect(enzymeWrapper.childAt(0).matchesElement(
+    expect(enzymeWrapper.childAt(0).childAt(1).matchesElement(
       <ErrorWidget error={weatherByCity[city].error} />
     )).toBe(true);
-    expect(enzymeWrapper.children().length).toEqual(1);
+    expect(enzymeWrapper.childAt(0).children().length).toEqual(2);
   });
 });

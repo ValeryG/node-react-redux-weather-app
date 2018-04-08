@@ -8,8 +8,7 @@ import LoadingWidget from './LoadingWidget';
 import WeatherInfo from './WeatherInfo';
 import ErrorWidget from './ErrorWidget';
 
-export const CityContainer = ({city, removeCity, weatherByCity}) => {
-  const weatherForCity = weatherByCity[city];
+function renderChild(city, weatherForCity) {
   if (weatherForCity.fetching) {
     return <LoadingWidget />;
   }
@@ -21,12 +20,20 @@ export const CityContainer = ({city, removeCity, weatherByCity}) => {
       weatherInfo={weatherForCity.data}
       city={city} />
   );
+}
+
+export const CityContainer = ({city, weatherByCity}) => {
+  return (
+    <div className="city">
+      <div className="header"><h1>{city}</h1></div>
+      {renderChild(city, weatherByCity[city])}
+    </div>
+  );
 };
 
 CityContainer.propTypes = {
   city: PropTypes.string.isRequired,
-  weatherByCity: PropTypes.object.isRequired,
-  removeCity: PropTypes.func.isRequired
+  weatherByCity: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
