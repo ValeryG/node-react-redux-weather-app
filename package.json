@@ -4,7 +4,7 @@
   "description": "A simple sample weather app made using NodeJS, React, and Redux",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "build": "webpack",
     "postinstall": "npm run build",
     "start": "node index.js",
@@ -31,6 +31,7 @@
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "coveralls": "^3.0.0",
     "css-loader": "^0.28.11",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
